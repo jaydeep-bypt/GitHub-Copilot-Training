@@ -55,6 +55,15 @@ pytest --cov=src --cov-report=html
 open htmlcov/index.html
 ```
 
+### 🌍 Try the Real-Time Weather Demo
+
+```bash
+# Check live weather for Ahmedabad, India
+python check_real_weather.py
+```
+
+This demo fetches **actual real-time weather data** from the Open-Meteo API!
+
 ### Usage Example
 
 ```python
@@ -74,6 +83,33 @@ cached_data = weather.get_weather("Berlin")
 stats = weather.get_cache_stats()
 print(f"Hit rate: {stats['hit_rate_percent']}%")
 ```
+
+### 🌍 Real-Time Weather Demo
+
+Try the included demo script to fetch live weather data:
+
+```bash
+# Activate virtual environment
+source venv/bin/activate
+
+# Run real-time weather check for Ahmedabad
+python check_real_weather.py
+```
+
+**Sample Output:**
+```
+🌦️  CURRENT WEATHER FOR AHMEDABAD, INDIA
+============================================================
+🌡️  Temperature: 28.8°C
+💨 Wind Speed: 4.5 km/h
+🧭 Wind Direction: 29° (North-Northeast)
+🌈 Condition: ☀️  Clear sky
+🕐 Time: 2025-11-08T11:45 GMT
+📍 Location: 23.0°N, 72.625°E
+⏱️  Response Time: 0.82 seconds
+```
+
+The demo successfully fetches **real-time weather data** from Open-Meteo API, demonstrating the working Weather Service integration!
 
 ## 📊 Project Metrics
 
@@ -117,6 +153,7 @@ github-copilot-hero-mode/
 │   └── security_scan_report.md
 ├── .github/workflows/
 │   └── codeql.yml          # Security scanning
+├── check_real_weather.py   # 🌍 Real-time weather demo
 └── requirements.txt
 ```
 
