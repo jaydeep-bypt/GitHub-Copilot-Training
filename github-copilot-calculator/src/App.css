@@ -1,0 +1,280 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+body,
+html,
+#root,
+.app-root {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', Arial, sans-serif;
+  background: #181a20;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calculator-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding: 2rem 0;
+  background: #232634;
+  border-radius: 0;
+  box-shadow: none;
+  position: relative;
+}
+
+.calculator-main {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  background: #232634;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.25);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.calculator-display {
+  width: 100%;
+  min-height: 3rem;
+  background: #232634;
+  border-radius: 0.75rem;
+  font-size: 2.2rem;
+  text-align: right;
+  padding: 1.2rem;
+  margin-bottom: 1.2rem;
+  color: #f5f6fa;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  border: 1px solid #2d2f3b;
+}
+
+.calculator-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 70px);
+  gap: 1rem;
+}
+
+.calculator-btn {
+  background: #232634;
+  border: none;
+  border-radius: 0.75rem;
+  font-size: 1.5rem;
+  padding: 1rem;
+  cursor: pointer;
+  color: #f5f6fa;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.10);
+  border: 1px solid #2d2f3b;
+}
+
+/* Button press animation */
+.calculator-btn:active {
+  transform: scale(0.96);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.calculator-btn:hover {
+  background: #35384a;
+  color: #ffd166;
+}
+
+.btn-clear {
+  background: #2d2f3b;
+  color: #ff6b6b;
+}
+
+.btn-reset {
+  background: #2d2f3b;
+  color: #4dd0e1;
+}
+
+.btn-delete {
+  background: #2d2f3b;
+  color: #ffd166;
+}
+
+/* History button styled same as other calculator buttons */
+.btn-history {
+  background: #232634;
+  color: #f5f6fa;
+  border: none;
+  border-radius: 0.75rem;
+  font-size: 1.5rem;
+  padding: 1rem;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.10);
+  border: 1px solid #2d2f3b;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-history:hover {
+  background: #35384a;
+  color: #ffd166;
+}
+.btn-history.active {
+  background: #232634;
+  color: #f5f6fa;
+}
+
+.btn-icon {
+  font-size: 1.5rem;
+}
+
+/* Slide-in animation for history panel */
+.history-panel {
+  position: absolute;
+  top: 0;
+  right: -350px;
+  width: 320px;
+  height: 100%;
+  background: #232634;
+  box-shadow: -4px 0 24px rgba(0,0,0,0.18);
+  border-radius: 1.5rem 0 0 1.5rem;
+  z-index: 10;
+  transition: right 0.4s cubic-bezier(0.4,0.2,0.2,1);
+  overflow-y: auto;
+}
+.history-panel.show {
+  right: 0;
+}
+.history-close {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #888;
+  cursor: pointer;
+  z-index: 101;
+}
+.history-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #4dd0e1;
+  text-align: left;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+  line-height: 2rem;
+  padding-top: 1.2rem;
+  padding-left: 1.2rem;
+  padding-right: 1.2rem;
+  overflow: visible;
+}
+.history-title-line {
+  width: 100%;
+  height: 2px;
+  background: #2d2f3b;
+  margin-bottom: 1rem;
+  border-radius: 1px;
+}
+.history-list {
+  margin-top: 1rem;
+}
+.history-item {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #2d2f3b;
+  color: #f5f6fa;
+  font-size: 1.1rem;
+}
+.history-empty {
+  color: #888;
+  text-align: center;
+  margin-top: 2rem;
+}
+.history-panel::-webkit-scrollbar {
+  width: 8px;
+  background: #232634;
+  border-radius: 4px;
+}
+.history-panel::-webkit-scrollbar-thumb {
+  background: #4dd0e1;
+  border-radius: 4px;
+}
+
+/* Custom scrollbar for history panel and calculator */
+.calculator-container ::-webkit-scrollbar {
+  width: 8px;
+  background: transparent;
+}
+.calculator-container ::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #444 40%, #888 100%);
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  transition: background 0.2s;
+}
+.calculator-container ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #666 40%, #aaa 100%);
+}
+.calculator-container ::-webkit-scrollbar-track {
+  background: #222;
+  border-radius: 8px;
+}
+/* For Firefox */
+.calculator-container {
+  scrollbar-width: thin;
+  scrollbar-color: #888 #222;
+}
+
+/* History panel specific scrollbar (if needed) */
+.history-panel ::-webkit-scrollbar {
+  width: 8px;
+}
+.history-panel ::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #444 40%, #888 100%);
+  border-radius: 8px;
+}
+.history-panel {
+  scrollbar-width: thin;
+  scrollbar-color: #888 #222;
+}
+@media (max-width: 700px) {
+  .calculator-main {
+    max-width: 98vw;
+    padding: 1rem;
+  }
+  .calculator-buttons {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .history-panel {
+    max-height: 200px;
+    width: 90vw;
+  }
+}
