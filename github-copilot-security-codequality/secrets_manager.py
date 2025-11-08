@@ -1,5 +1,6 @@
-# secrets_manager.py
-API_KEY = "12345-SECRET-KEY"  # ❌ Hard-coded secret
+# secrets_manager.py (After Fix)
+import os
 
 def get_api_key():
-    return API_KEY
+    # ✅ Secure: environment variable, no hard-coded secrets
+    return os.getenv("API_KEY", "default_placeholder")
